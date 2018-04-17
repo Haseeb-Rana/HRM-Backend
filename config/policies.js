@@ -21,6 +21,9 @@ module.exports.policies = {
 
   EmployeeController:{
     'create': 'isAuth',
+  },
+  JobController:{
+    'create': 'isAuth',
   }
 
 };

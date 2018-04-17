@@ -10,7 +10,9 @@
 
 module.exports.routes = {
 
-  'POST /Signup': 'RegisterController.Signup',
-  'POST /Login': 'AuthController.login',
-  'POST /Employees': 'EmployeeController.create',
+  'POST /signup': 'RegisterController.Signup',
+  'POST /login': 'AuthController.login',
+  'POST /employees': 'EmployeeController.create',
+
+  'POST /jobs': 'JobController.create',
 };
