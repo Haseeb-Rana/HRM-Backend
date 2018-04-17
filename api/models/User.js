@@ -52,11 +52,20 @@ module.exports = {
       cb();
     });
   },
+  isAuthenticated: function(value) {
+    bcrypt.compare(value, this.password, function (error, matched) {
+      if (error) return false;
+      return this;
+    });
+  },
   toJSON: function () {
     var obj = this;
     delete obj.password; //remove the password field when displaying the user model object
     return obj;
   },
+  generateToken: function () {
+    return jwt.sign(this.toJSON(),"process.env.SECRET",{expiresIn: '10m'});
+  }
 
 };
 

@@ -23,8 +23,7 @@ module.exports = {
     User.update({id: value.owner},{company: value.id}).fetch().exec(function cb(err,user)
     {
       if(err)
-        res.json(err);
-      res.json(user);
+        res.status(200).send(err);
     })
   }
 };

@@ -2,15 +2,14 @@ var jwt = require("jsonwebtoken");
 module.exports= function (req,res,next) {
 
   if (req.headers.authorization) {
-    jwt.verify(req.headers.authorization, new Buffer(process.env.SECRET,'base64'), function (err, decoded) {
-      //418 = I'm a teapot!
+    jwt.verify(req.headers.authorization, 'asdfg', function (err, decoded) {
       if (err){
         console.log(process.env.SECRET);
         return res.status(401).send({success: false, message: 'invalid'});
       }
       if (decoded) {
 
-        Users.findOne(decoded.id, function(error, currentUser) {
+        User.findOne(decoded.id, function(error, currentUser) {
           if (error) {
             return res.serverError(err);
           }
