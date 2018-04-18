@@ -38,6 +38,9 @@ module.exports = {
       type: 'number',
       columnName: 'created_by_id'
     },
+    logo:{
+      type: 'string'
+    },
     company:{
       model: 'Company',
       columnName:'company_id'
