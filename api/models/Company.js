@@ -8,7 +8,7 @@
 module.exports = {
   tableName: 'companies',
   attributes: {
-    c_name:{
+    name:{
       type: 'string'
     },
     owner:{
@@ -25,13 +25,12 @@ module.exports = {
   },
 
 
-  afterCreate:function(value,res)
-  {
-    User.update({id: value.owner},{company: value.id}).fetch().exec(function cb(err,user)
-    {
+  afterCreate: function(company,done) {
+    User.update({id: company.owner},{company: company.id}).fetch().exec(function(err,user) {
       if(err)
-        res.status(200).send(err);
-    })
+        return done(err);
+      return done();
+    });
   }
 };
 

@@ -21,7 +21,7 @@ module.exports = {
     gender: {
       type: 'string',
     },
-    email:{
+    email: {
       type:'string',
       allowNull:false,
       unique: true,
@@ -33,21 +33,21 @@ module.exports = {
       type: 'string',
       required: true
     },
-    createdBy:{
+    createdBy: {
       type: 'number',
       columnName: 'created_by_id'
     },
-    logo:{
+    image: {
       type: 'string'
     },
-    time_zone:{
+    time_zone: {
       type: 'string'
     },
-    is_active:{
+    is_active: {
       type: 'boolean',
       defaultsTo: false
     },
-    company:{
+    company: {
       model: 'Company',
       columnName:'company_id'
     }
