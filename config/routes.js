@@ -49,7 +49,7 @@ module.exports.routes = {
 
   //======================================================Start========================================================
   //Register Controller
-  'POST /signup': 'RegisterController.Signup',
+  'POST /company/signup': 'RegisterController.signup',
   //======================================================End==========================================================
 
 
