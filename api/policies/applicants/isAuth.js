@@ -1,4 +1,3 @@
-var bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
 module.exports= function (req,res,next) {
 
@@ -15,11 +14,17 @@ module.exports= function (req,res,next) {
             return res.serverError(err);
           }
 
-          if (!currentApplicant) return res.serverError("Applicant not found");
-          console.log("Current Applicant is: " + JSON.stringify(currentApplicant, null, 2));
+          if (!currentApplicant) return res.serverError("User not found");
+          console.log("Current User is: " + JSON.stringify(currentApplicant, null, 2));
           req.currentApplicant = currentApplicant;
+          console.log(req.currentApplicant);
           next();
+          // res.send(currentUser);
+          // return ok();
+
         });
+
+        //return res.send({success: true, user: decoded});
       }
     });
   } else {
