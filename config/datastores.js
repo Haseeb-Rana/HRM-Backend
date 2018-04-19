@@ -56,9 +56,6 @@ module.exports.datastores = {
     ***************************************************************************/
     // adapter: 'sails-mysql',
     // url: 'mysql://root:root@localhost:3306/newhrm',
-    adapter: 'sails-postgresql',
-    url: 'postgresql://postgres:root@localhost/newhrm2',
-
   },
 
 
