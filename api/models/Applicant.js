@@ -9,23 +9,28 @@ module.exports = {
   tableName:'applicants',
   attributes: {
     first_name: {
-      allowNull: false,
       type: 'string'
     },
     last_name: {
-      allowNull: false,
       type: 'string',
-      required: true
+    },
+    gender:{
+      type: 'string'
     },
     email:{
       type:'string',
-      allowNull:false,
       unique: true,
-      required: true,
       isEmail:true
     },
     password:{
       type: 'string'
+    },
+    time_zone:{
+      type: 'string'
+    },
+    is_active:{
+      type: 'boolean',
+      defaultsTo: false
     }
   },
 

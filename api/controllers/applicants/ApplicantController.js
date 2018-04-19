@@ -7,13 +7,7 @@
 var bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
 module.exports = {
-
-  // _config: {
-  //   model: 'Applicant',
-  //   actions: true,
-  //   shortcuts: true,
-  //   rest: true
-  // },
+  //Applicant Signup Start
   create:function(req,res)
   {
     var params = {
@@ -32,7 +26,9 @@ module.exports = {
 
     })
   },
+  //Applicant Signup End
 
+  //Login Start
   login: function (req, res, next) {
 
     /**
@@ -66,8 +62,27 @@ module.exports = {
     });
 
 
-  }
+  },
 
+  //Login End
+
+  //Current Applicant Update profile Start
+
+  update:
+  function (req,res) {
+    var params = {
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      gender: req.body.gender
+    }
+
+    Applicant.update({id:req.currentApplicant.id}).set(params).fetch().exec(function (err,applicant) {
+      if(err)
+        res.status(400).send(err);
+      res.status(200).send(applicant);
+    })
+  }
+  //Current Applicant Update Profile End
 
 };
 

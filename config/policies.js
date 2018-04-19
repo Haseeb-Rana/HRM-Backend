@@ -17,10 +17,16 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  ApplicantController:{
+    'update': 'applicants/isAuth',
+  },
 
+  CompanyController:{
+    'update': 'isAuth',
+  },
   EmployeeController:{
     'create': 'isAuth',
+    'update': 'isAuth',
   },
   JobController:{
     'create': 'isAuth',

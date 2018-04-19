@@ -4,13 +4,13 @@ module.exports= function (req,res,next) {
   if (req.headers.authorization) {
     jwt.verify(req.headers.authorization, 'asdfg', function (err, decoded) {
       if (err){
-        console.log(process.env.SECRET);
         return res.status(401).send({success: false, message: 'invalid'});
       }
       if (decoded) {
-
-        Applicant.findOne(decoded.id, function(error, currentApplicant) {
+        console.log(decoded.id);
+        Applicant.find(decoded.id).fetch().exec(function(error, currentApplicant) {
           if (error) {
+            console.log(JSON.stringify(currentApplicant,null,2));
             return res.serverError(err);
           }
 

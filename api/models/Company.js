@@ -18,6 +18,10 @@ module.exports = {
     logo:{
       type: 'string'
     },
+    is_active:{
+      type: 'boolean',
+      defaultsTo: false
+    }
   },
 
 

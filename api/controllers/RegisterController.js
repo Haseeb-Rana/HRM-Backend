@@ -14,8 +14,7 @@ module.exports = {
       gender: req.body.gender,
       email: req.body.email,
       password: req.body.password,
-      createdBy: req.body.createdBy,
-
+      createdBy: req.body.createdBy
     }
     User.create(userParams).fetch()
           .exec(function newUser(err, user) {

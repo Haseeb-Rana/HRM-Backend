@@ -16,18 +16,23 @@ module.exports.routes = {
   //Applicant Controller
    'POST /applicants/signup': 'applicants/ApplicantController.create',
    'POST /applicants/login': 'applicants/ApplicantController.login',
+   'PUT /api/v1/applicants/profile': 'applicants/ApplicantController.update',
   //======================================================End==========================================================
-
-
   //======================================================Start========================================================
   //Auth Controller
   'POST /login': 'AuthController.login',
   //======================================================End==========================================================
 
+  //======================================================Start========================================================
+  //Company Controller
+
+  'PUT /company/update': 'CompanyController.update',
+  //======================================================End==========================================================
 
   //======================================================Start========================================================
   //EmployeeController
   'POST /employees': 'EmployeeController.create',
+  'PUT /employees': 'EmployeeController.update',
   //======================================================End==========================================================
 
 

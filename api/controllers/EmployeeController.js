@@ -25,6 +25,20 @@ create:function (req,res) {
     res.status(200).json(employee);
   })
 
-}
+},
+  update: function (req,res) {
+    console.log(req.currentUser.id);
+    var params = {
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      gender: req.body.gender
+    }
+
+    User.update({id: req.currentUser.id}).set(params).fetch().exec(function (err,user) {
+      if(err)
+        res.status(400).send(err);
+      res.status(200).send(user);
+    })
+  }
 };
 

@@ -20,7 +20,6 @@ module.exports = {
     },
     gender: {
       type: 'string',
-      required: true
     },
     email:{
       type:'string',
@@ -40,6 +39,13 @@ module.exports = {
     },
     logo:{
       type: 'string'
+    },
+    time_zone:{
+      type: 'string'
+    },
+    is_active:{
+      type: 'boolean',
+      defaultsTo: false
     },
     company:{
       model: 'Company',
