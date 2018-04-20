@@ -14,15 +14,44 @@ module.exports = {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      experience: req.body.experience
 
     }
 
-    Applicant.create(params).fetch().exec(function (err,job)
+    Applicant.create(params).fetch().exec(function (err,applicant)
     {
       if(err)
-        res.status(400).send(err);
-      res.status(200).send(job);
+        res.badRequest(err);
+      //=================================================================================================
+      //Email Send to Applicant Email
+
+      var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'nexthrmofficial@gmail.com',
+          pass: 'haseeb898'
+        },
+        tls: {
+          // do not fail on invalid certs
+          rejectUnauthorized: false
+        }
+      });
+      const mailOptions = {
+        from: 'nexthrmofficial@gmail.com', // sender address
+        to: user.email, // list of receivers
+        subject: 'NextHrm Email', // Subject line
+        html: '<p>Welcome </p>' + user.first_name + 'To Next Hrm'// plain text body
+      };
+      transporter.sendMail(mailOptions, function (err, info) {
+        if(err)
+          res.badRequest(err)
+        res.ok();
+      });
+
+      // End of Applicant email
+      //=================================================================================================
+      res.created(applicant);
 
     })
   },
@@ -73,13 +102,14 @@ module.exports = {
     var params = {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
-      gender: req.body.gender
+      gender: req.body.gender,
+      experience: req.body.experience
     }
 
     Applicant.update({id:req.currentApplicant.id}).set(params).fetch().exec(function (err,applicant) {
       if(err)
-        res.status(400).send(err);
-      res.status(200).send(applicant);
+        res.badRequest(err);
+      res.created(applicant);
     })
   }
   //Current Applicant Update Profile End

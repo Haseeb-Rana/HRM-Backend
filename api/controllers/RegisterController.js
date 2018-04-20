@@ -39,9 +39,9 @@ module.exports = {
         };
         transporter.sendMail(mailOptions, function (err, info) {
           if(err)
-            console.log(err)
-          else
-            console.log(info);
+            res.badRequest(err);
+          res.ok();
+
         });
 
       // End of user email
@@ -52,7 +52,7 @@ module.exports = {
       };
       Company.create(params).fetch().exec(function(err,company) {
         if (err)
-          res.json(err);
+          res.badRequest(err);
         user.company = company;
         res.created(user);
       });

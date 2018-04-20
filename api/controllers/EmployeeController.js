@@ -21,24 +21,22 @@ create:function (req,res) {
   User.create(params).fetch().exec(function(err,employee)
   {
     if(err)
-      res.status(400).json(err);
-    res.status(200).json(employee);
+      res.badRequest(err);
+    res.created(employee);
   })
 
 },
   update: function (req,res) {
-    console.log(req.currentUser.id);
     var params = {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       gender: req.body.gender
     }
 
-    User.update({id: req.currentUser.id}).set(params).fetch().exec(function (err,user) {
+    User.update({id: req.currentUser.id}).set(params).fetch().exec(function (err,employee) {
       if(err)
-        res.status(400).send(err);
-      res.status(200).send(user);
+        res.badRequest(err);
+      res.created(employee);
     })
   }
 };
-

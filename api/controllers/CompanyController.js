@@ -10,17 +10,13 @@ module.exports = {
   update: function (req,res) {
 
     var params = {
-      c_name: req.body.c_name,
+      name: req.body.name,
     }
-
-    Company.update({id:req.currentUser.company}).set(params).fetch().exec(function (err,company) {
+    Company.update({id: req.currentUser.company}).set(params).fetch().exec(function (err,company) {
       if(err)
-        res.status(400).send(err);
-      res.status(200).send(company);
+        res.badRequest(err);
+      res.created(company);
 
     })
-
   }
-
 };
-
