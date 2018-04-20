@@ -31,6 +31,16 @@ module.exports = {
     is_active:{
       type: 'boolean',
       defaultsTo: false
+    },
+    reset_password_token:{
+      type: 'string'
+    },
+    reset_password_sent_at:{
+      type:'ref',
+      columnType:'timestamp'
+    },
+    confirmation_token:{
+      type: 'string'
     }
   },
 
