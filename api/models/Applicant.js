@@ -41,6 +41,9 @@ module.exports = {
     },
     confirmation_token:{
       type: 'string'
+    },
+    experience:{
+      type: 'string'
     }
   },
 
