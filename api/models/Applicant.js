@@ -43,7 +43,12 @@ module.exports = {
       type: 'string'
     },
     experience:{
-      type: 'string'
+      model: 'experience',
+      columnName: 'experience_id'
+    },
+    education:{
+      model: 'Education',
+      columnName: 'education_id'
     }
   },
 

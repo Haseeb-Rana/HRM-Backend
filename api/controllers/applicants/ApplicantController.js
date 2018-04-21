@@ -6,7 +6,9 @@
  */
 var bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
+var nodemailer = require('nodemailer');
 module.exports = {
+  //================================================Start Create====================================================
   //Applicant Signup Start
   create:function(req,res)
   {
@@ -23,14 +25,15 @@ module.exports = {
     {
       if(err)
         res.badRequest(err);
-      //=================================================================================================
+      //===============================================Start Email Send================================================
       //Email Send to Applicant Email
+      console.log(process.env.SMTP_EMAIL)
 
       var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'nexthrmofficial@gmail.com',
-          pass: 'haseeb898'
+          user: process.env.SMTP_EMAIL,
+          pass: process.env.SMTP_PASSWORD
         },
         tls: {
           // do not fail on invalid certs
@@ -38,25 +41,27 @@ module.exports = {
         }
       });
       const mailOptions = {
-        from: 'nexthrmofficial@gmail.com', // sender address
-        to: user.email, // list of receivers
+        from: process.env.SMTP_EMAIL, // sender address
+        to: applicant.email, // list of receivers
         subject: 'NextHrm Email', // Subject line
-        html: '<p>Welcome </p>' + user.first_name + 'To Next Hrm'// plain text body
+        html: '<p>Welcome </p>' + applicant.first_name + 'To Next Hrm'// plain text body
       };
       transporter.sendMail(mailOptions, function (err, info) {
         if(err)
-          res.badRequest(err)
-        res.ok();
+          res.badRequest(err);
       });
 
       // End of Applicant email
-      //=================================================================================================
+      //==============================================End Email Send ===================================================
       res.created(applicant);
 
     })
   },
   //Applicant Signup End
 
+  //=======================================================End Create =================================================
+
+  //========================================================Start Login===============================================
   //Login Start
   login: function (req, res, next) {
 
@@ -82,7 +87,7 @@ module.exports = {
 
         //save the date the token was generated for already inside toJSON()
 
-        var token = jwt.sign({id: applicant.id}, 'asdfg',{
+        var token = jwt.sign({id: applicant.id}, process.env.SECRET,{
           expiresIn: '10m'
         });
         res.json(token);
@@ -95,6 +100,10 @@ module.exports = {
 
   //Login End
 
+  //====================================================End Login======================================================
+
+
+  //=====================================================Start Update==================================================
   //Current Applicant Update profile Start
 
   update:
@@ -113,6 +122,6 @@ module.exports = {
     })
   }
   //Current Applicant Update Profile End
-
+//=======================================================End Update====================================================
 };
 

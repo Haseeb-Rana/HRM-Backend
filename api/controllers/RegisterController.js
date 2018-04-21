@@ -6,6 +6,8 @@
  */
 var nodemailer = require('nodemailer');
 module.exports = {
+
+  //======================================================Start Signup================================================
   signup: function(req,res) {
     var userParams = {
       first_name: req.body.first_name,
@@ -14,17 +16,19 @@ module.exports = {
       email: req.body.email,
       password: req.body.password
     };
+
+    console.log(process.env.SMPTP_EMAIL);
     User.create(userParams).fetch().exec(function(err, user) {
       if (err)
         res.badRequest(err);
-      //=================================================================================================
+      //========================================= Start Email Send========================================================
       //Email Send to User
 
         var transporter = nodemailer.createTransport({
           service: 'gmail',
           auth: {
-            user: 'nexthrmofficial@gmail.com',
-            pass: 'haseeb898'
+            user: process.env.SMTP_EMAIL,
+            pass: process.env.SMTP_PASSWORD
           },
           tls: {
             // do not fail on invalid certs
@@ -32,7 +36,7 @@ module.exports = {
           }
         });
         const mailOptions = {
-          from: 'nexthrmofficial@gmail.com', // sender address
+          from: process.env.SMTP_EMAIL, // sender address
           to: user.email, // list of receivers
           subject: 'NextHrm Email', // Subject line
           html: '<p>Welcome </p>' + user.first_name + 'To Next Hrm'// plain text body
@@ -45,7 +49,10 @@ module.exports = {
         });
 
       // End of user email
-      //=================================================================================================
+        //=============================================End of Email Send==============================================
+
+
+
       var params = {
         name: req.body.company.name,
         owner: user.id
@@ -58,5 +65,7 @@ module.exports = {
       });
     });
   }
+
+  //===========================================================End of Signup==========================================
 };
 

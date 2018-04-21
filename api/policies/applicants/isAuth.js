@@ -2,7 +2,7 @@ var jwt = require("jsonwebtoken");
 module.exports= function (req,res,next) {
 
   if (req.headers.authorization) {
-    jwt.verify(req.headers.authorization, 'asdfg', function (err, decoded) {
+    jwt.verify(req.headers.authorization, process.env.SECRET, function (err, decoded) {
       if (err){
         return res.status(401).send({success: false, message: 'invalid'});
       }

@@ -13,7 +13,6 @@ module.exports = {
     },
     owner:{
       model: 'User'
-      //via: 'id'
     },
     logo:{
       type: 'string'

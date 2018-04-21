@@ -18,8 +18,8 @@ create:function(req,res)
   Job.create(params).fetch().exec(function (err,job)
   {
     if(err)
-      res.status(400).send(err);
-    res.status(200).send(job);
+      res.badRequest(err);
+    res.created(job);
 
   })
 }
