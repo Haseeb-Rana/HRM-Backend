@@ -6,6 +6,7 @@
  */
 var bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
+var randomstring = require("randomstring");
 module.exports = {
   tableName: 'users',
   attributes: {
@@ -60,13 +61,19 @@ module.exports = {
     },
     confirmation_token:{
       type: 'string'
+    },
+    invitation_token:{
+      type: 'string'
     }
+
   },
 
   beforeCreate: function (values, cb) {
     // Hash password
     bcrypt.hash(values.password, 10, function (err, hash) {
       if (err) return cb(err);
+      //values.invitation_token = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+      //values.invitation_token = randomstring.generate({length:20});
       values.password = hash;
       cb();
     });

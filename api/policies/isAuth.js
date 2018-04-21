@@ -2,9 +2,9 @@ var jwt = require("jsonwebtoken");
 module.exports= function (req,res,next) {
 
   if (req.headers.authorization) {
-    jwt.verify(req.headers.authorization, process.env.SECRET, function (err, decoded) {
+    jwt.verify(req.headers.authorization,'process.env.SECRET', function (err, decoded) {
       if (err){
-        console.log(process.env.SECRET);
+        //console.log(process.env.SECRET);
         return res.status(401).send({success: false, message: 'invalid'});
       }
       if (decoded) {
@@ -16,12 +16,11 @@ module.exports= function (req,res,next) {
 
           if (!currentUser) return res.serverError("User not found");
           console.log("Current User is: " + JSON.stringify(currentUser, null, 2));
-          console.log(currentUser.last_name);
+          console.log(req.currentUser);
           req.currentUser = currentUser;
           next();
           // res.send(currentUser);
           // return ok();
-
         });
 
         //return res.send({success: true, user: decoded});

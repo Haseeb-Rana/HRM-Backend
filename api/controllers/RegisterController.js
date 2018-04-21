@@ -14,10 +14,9 @@ module.exports = {
       last_name: req.body.last_name,
       gender: req.body.gender,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      invitation_token: req.body.invitation_token
     };
-
-    console.log(process.env.SMPTP_EMAIL);
     User.create(userParams).fetch().exec(function(err, user) {
       if (err)
         res.badRequest(err);
