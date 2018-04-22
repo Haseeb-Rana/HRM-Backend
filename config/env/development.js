@@ -3,9 +3,9 @@ module.exports = {
     default: {
       adapter: 'sails-postgresql',
       host: process.env.DB_HOST || 'localhost',
-      user: process.env.DB_USERNAME || 'faiz',
-      password: process.env.DB_PASSWORD || 'faiz',
-      database: process.env.DB_NAME || 'admin_development',
+      user: process.env.DB_USERNAME || 'postgres',
+      password: process.env.DB_PASSWORD || 'root',
+      database: process.env.DB_NAME || 'newhrm2',
       ssl: false
     },
   },

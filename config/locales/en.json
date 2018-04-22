@@ -1,4 +1,7 @@
 {
-  "Welcome": "Welcome",
-  "A brand new app.": "A brand new app."
+  "successUpdate": "Successfully Update.",
+  "A brand new app.": "A brand new app.",
+  "applicant": {
+    "successLogin": "Applicant successfully login"
+  }
 }

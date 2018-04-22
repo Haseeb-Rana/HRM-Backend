@@ -8,7 +8,7 @@ module.exports= function (req,res,next) {
       }
       if (decoded) {
         console.log(decoded.id);
-        Applicant.find(decoded.id).fetch().exec(function(error, currentApplicant) {
+        Applicant.find({id: decoded.id}).exec(function(error, currentApplicant) {
           if (error) {
             console.log(JSON.stringify(currentApplicant,null,2));
             return res.serverError(err);

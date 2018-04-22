@@ -16,7 +16,7 @@ module.exports = {
       location: req.body.location,
       time_period: req.body.time_period,
       description: req.body.description,
-      applicant: '1',
+      applicant: req.currentApplicant.id,
     }
     Experience.create(params).fetch().exec(function (err,experience)
     {

@@ -20,45 +20,46 @@ module.exports.routes = {
 
   //======================================================Start========================================================
   //Applicant Controller
-   'POST /applicants/signup': 'applicants/ApplicantController.create',
-   'POST /applicants/login': 'applicants/ApplicantController.login',
-   'PUT /api/v1/applicants/profile': 'applicants/ApplicantController.update',
+   'POST /v1/applicants/signup': 'v1/applicants/RegisterController.create',
+   'POST /v1/applicants/login': 'v1/applicants/AuthController.login',
+   'PUT /v1/applicants/profile': 'v1/applicants/UpdateController.update',
+   'GET /v1/applicants/profile': 'v1/applicants/ShowController.show',
+
+  //Education Controller
+  'POST /v1/applicants/education': 'v1/applicants/EducationController.create',
+  //Experience Controller
+  'POST /v1/applicants/experience': 'v1/applicants/ExperienceController.create',
   //======================================================End==========================================================
   //======================================================Start========================================================
   //Auth Controller
-  'POST /login': 'AuthController.login',
+  'POST /v1/company/login': 'v1/company/AuthController.login',
   //======================================================End==========================================================
 
   //======================================================Start========================================================
   //Company Controller
 
-  'PUT /company/update': 'CompanyController.update',
+  'PUT v1/company/update': 'v1/company/CompanyController.update',
   //======================================================End==========================================================
 
   //======================================================Start========================================================
-    //Education Controller
 
-  'POST /education': 'EducationController.create',
   //======================================================End==========================================================
 
   //======================================================Start========================================================
   //EmployeeController
-  'POST /employees': 'EmployeeController.create',
-  'PUT /employees': 'EmployeeController.update',
+  'POST /v1/employees': 'v1/company/EmployeeController.create',
+  'PUT /v1/employees': 'v1/company/EmployeeController.update',
   //======================================================End==========================================================
+
 
 
   //======================================================Start========================================================
   //Job Controller
-  'POST /jobs': 'JobController.create',
+  'POST v1/jobs': 'v1/company/JobController.create',
   //======================================================End==========================================================
 
   //======================================================Start========================================================
   //Register Controller
-  'POST /company/signup': 'RegisterController.signup',
+  'POST /v1/company/signup': 'v1/company/RegisterController.signup',
   //======================================================End==========================================================
-
-
-
-
 };

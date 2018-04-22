@@ -37,7 +37,7 @@ module.exports = {
 
         //save the date the token was generated for already inside toJSON()
 
-        var token = jwt.sign({id: user.id},'process.env.SECRET',{
+        var token = jwt.sign({id: user.id},process.env.SECRET,{
           expiresIn: '10m'
         });
         //console.log(token);

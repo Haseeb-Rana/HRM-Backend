@@ -73,7 +73,7 @@ module.exports = {
     bcrypt.hash(values.password, 10, function (err, hash) {
       if (err) return cb(err);
       //values.invitation_token = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-      //values.invitation_token = randomstring.generate({length:20});
+      values.invitation_token = randomstring.generate({length:20});
       values.password = hash;
       cb();
     });

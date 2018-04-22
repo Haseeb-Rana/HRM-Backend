@@ -17,19 +17,26 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  'applicants/ApplicantController':{
+  'v1/applicants/UpdateController':{
     'update': 'applicants/isAuth',
   },
 
-  CompanyController:{
+  'v1/applicants/EducationController': {
+    'create': 'applicants/isAuth',
+  },
+
+  'v1/applicants/ExperienceController': {
+    'create': 'applicants/isAuth',
+  },
+
+  'v1/company/CompanyController':{
     'update': 'isAuth',
   },
-  EmployeeController:{
+  'v1/company/EmployeeController':{
     'create': 'isAuth',
     'update': 'isAuth',
   },
-  JobController:{
+  'v1/company/JobController':{
     'create': 'isAuth',
   }
-
 };

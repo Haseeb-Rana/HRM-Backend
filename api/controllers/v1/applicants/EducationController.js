@@ -19,7 +19,7 @@ module.exports = {
       institution: req.body.institution,
       completion_year: req.body.completion_year,
       result_type: req.body.result_type,
-      applicant: "1",
+      applicant: req.currentApplicant.id,
     }
     Education.create(params).fetch().exec(function (err,education) {
       if(err)

@@ -26,7 +26,7 @@
  * ```
  */
 
-module.exports = function ok(optionalData) {
+module.exports = function ok(optionalData , message) {
 
   // Get access to `req` and `res`
   var req = this.req;
@@ -61,7 +61,10 @@ module.exports = function ok(optionalData) {
   }
   // Set status code and send response data.
   else {
-    return res.status(statusCodeToSet).send({success: true, data: optionalData});
+    var response = {success: true, data: optionalData};
+    if(message)
+      response.message = message;
+    return res.status(200).send(response);
   }
 
 };
