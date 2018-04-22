@@ -17,7 +17,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  ApplicantController:{
+  'applicants/ApplicantController':{
     'update': 'applicants/isAuth',
   },
 
