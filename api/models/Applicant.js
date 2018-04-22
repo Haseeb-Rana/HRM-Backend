@@ -49,6 +49,12 @@ module.exports = {
     education:{
       model: 'Education',
       columnName: 'education_id'
+    },
+    invitation_token:{
+      type: 'string'
+    },
+    invitation_accepted_at:{
+      type: 'number',
     }
   },
 

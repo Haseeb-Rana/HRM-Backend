@@ -64,6 +64,9 @@ module.exports = {
     },
     invitation_token:{
       type: 'string'
+    },
+    invitation_accepted_at:{
+      type: 'number',
     }
 
   },

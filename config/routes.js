@@ -24,6 +24,8 @@ module.exports.routes = {
    'POST /v1/applicants/login': 'v1/applicants/AuthController.login',
    'PUT /v1/applicants/profile': 'v1/applicants/UpdateController.update',
    'GET /v1/applicants/profile': 'v1/applicants/ShowController.show',
+  'POST /v1/applicants/password/create': 'v1/applicants/PasswordController.create',
+  'PUT /v1/applicants/password/:token': 'v1/applicants/PasswordController.update',
 
   //Education Controller
   'POST /v1/applicants/education': 'v1/applicants/EducationController.create',
@@ -38,7 +40,11 @@ module.exports.routes = {
   //======================================================Start========================================================
   //Company Controller
 
-  'PUT v1/company/update': 'v1/company/CompanyController.update',
+  'PUT /v1/company/profile': 'v1/company/CompanyController.update',
+  'GET /v1/company/invitations/:token': 'v1/company/InvitationController.findByToken',
+  'PUT /v1/company/invitations/:token': 'v1/company/InvitationController.update',
+  'POST /v1/company/password/create': 'v1/company/PasswordController.create',
+  'PUT /v1/company/password/:token': 'v1/company/PasswordController.update',
   //======================================================End==========================================================
 
   //======================================================Start========================================================
