@@ -20,7 +20,7 @@ module.exports.routes = {
 
   //======================================================Start========================================================
   //Applicant Controller
-   'POST /v1/applicants/signup': 'v1/applicants/RegisterController.create',
+   'POST /v1/applicants/signup': 'v1/applicants/RegisterController.signup',
    'POST /v1/applicants/login': 'v1/applicants/AuthController.login',
    'PUT /v1/applicants/profile': 'v1/applicants/UpdateController.update',
    'GET /v1/applicants/profile': 'v1/applicants/ShowController.show',

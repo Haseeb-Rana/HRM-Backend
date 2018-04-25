@@ -58,15 +58,16 @@ module.exports = {
     }
   },
 
-  //Generate Hash Password for Applicant
   beforeCreate: function (values, cb) {
-    // Hash password
     bcrypt.hash(values.password, 10, function (err, hash) {
       if (err) return cb(err);
       values.password = hash;
       cb();
     });
   },
-  //End Of Generate password for Applicant
+  afterCreate: function (values, cb) {
+    ApplicantMailer.welcomeEmail(values);
+    cb();
+  },
 };
 
