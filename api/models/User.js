@@ -93,7 +93,7 @@ module.exports = {
     return obj;
   },
   generateToken: function () {
-    return jwt.sign(this.toJSON(),"process.env.SECRET",{expiresIn: '10m'});
+    return jwt.sign(this.toJSON(), process.env.SECRET, {expiresIn: '10m'});
   }
 
 };

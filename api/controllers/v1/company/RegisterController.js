@@ -22,7 +22,6 @@ module.exports = {
         res.badRequest(err);
       //========================================= Start Email Send========================================================
       //Email Send to User
-
         var transporter = nodemailer.createTransport({
           service: 'gmail',
           auth: {

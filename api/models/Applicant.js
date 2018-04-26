@@ -55,9 +55,8 @@ module.exports = {
     },
     invitation_accepted_at:{
       type: 'number',
-    }
+    },
   },
-
   beforeCreate: function (values, cb) {
     bcrypt.hash(values.password, 10, function (err, hash) {
       if (err) return cb(err);

@@ -1,12 +1,11 @@
-/**
- * EmployeeController
- *
- * @description :: Server-side actions for handling incoming requests.
- * @help        :: See https://sailsjs.com/docs/concepts/actions
- */
 var nodemailer = require('nodemailer');
+var params = { model: User };
 module.exports = {
 
+  list: function (req, res) {
+    params.condition = { company: req.currentUser.company };
+    DbService.list( req, res, params);
+  },
 create:function (req,res) {
 
   var params = {

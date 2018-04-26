@@ -1,13 +1,3 @@
-/**
- * Route Mappings
- * (sails.config.routes)
- *
- * Your routes tell Sails what to do each time it receives a request.
- *
- * For more information on configuring custom routes, check out:
- * https://sailsjs.com/anatomy/config/routes-js
- */
-
 module.exports.routes = {
   'GET /': {
     skipAssets: true,
@@ -54,6 +44,7 @@ module.exports.routes = {
   //======================================================Start========================================================
   //EmployeeController
   'POST /v1/employees': 'v1/company/EmployeeController.create',
+  'GET /v1/company/employees': 'v1/company/EmployeeController.list',
   'PUT /v1/employees': 'v1/company/EmployeeController.update',
   //======================================================End==========================================================
 
