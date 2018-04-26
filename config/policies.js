@@ -33,8 +33,7 @@ module.exports.policies = {
     'update': 'isAuth',
   },
   'v1/company/EmployeeController':{
-    'create': 'isAuth',
-    'update': 'isAuth',
+    '*': 'isAuth'
   },
   'v1/company/JobController':{
     'create': 'isAuth',

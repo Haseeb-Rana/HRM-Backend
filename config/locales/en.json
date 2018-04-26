@@ -1,7 +1,8 @@
 {
-  "successUpdate": "Successfully Update.",
-  "A brand new app.": "A brand new app.",
-  "applicant": {
-    "successLogin": "Applicant successfully login"
-  }
+	"successUpdate": "Successfully Update.",
+	"A brand new app.": "A brand new app.",
+	"applicant": {
+		"successLogin": "Applicant successfully login"
+	},
+	"successLogin": "successLogin"
 }

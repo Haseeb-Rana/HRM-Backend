@@ -1,31 +1,3 @@
-/**
- * ok.js
- *
- * A custom response.
- *
- * Example usage:
- * ```
- *     return res.ok();
- *     // -or-
- *     return res.ok(optionalData);
- * ```
- *
- * Or with actions2:
- * ```
- *     exits: {
- *       somethingHappened: {
- *         responseType: 'ok'
- *       }
- *     }
- * ```
- *
- * ```
- *     throw 'somethingHappened';
- *     // -or-
- *     throw { somethingHappened: optionalData }
- * ```
- */
-
 module.exports = function ok(optionalData , message) {
 
   // Get access to `req` and `res`
