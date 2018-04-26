@@ -1,9 +1,12 @@
 {
-  "name": "newhrm",
+  "name": "HR Duty",
   "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
-  "keywords": [],
+  "version": "1.0.0",
+  "description": "A Complete HR Solution",
+  "keywords": [
+    "SailsJS",
+    "PostgreSQL"
+  ],
   "dependencies": {
     "@sailshq/connect-redis": "^3.2.1",
     "@sailshq/lodash": "^3.10.3",
@@ -23,10 +26,12 @@
     "sails-postgresql": "^1.0.0"
   },
   "devDependencies": {
-    "@sailshq/eslint": "^4.19.3"
+    "@sailshq/eslint": "^4.19.3",
+    "nodemon": "^1.17.3"
   },
   "scripts": {
     "start": "NODE_ENV=deploying node app.js",
+    "dev": "nodemon app.js",
     "test": "npm run lint && npm run custom-tests && echo 'Done.'",
     "lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
     "custom-tests": "echo \"(No other custom tests yet.)\" && echo"
@@ -34,10 +39,10 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anonymous node/sails user/newhrm.git"
+    "url": "https://github.com/Haseeb-Rana/HRM-Backend.git"
   },
-  "author": "anonymous node/sails user",
-  "license": "",
+  "author": "Haseeb AH",
+  "license": "MIT",
   "engines": {
     "node": ">=9.4"
   }
