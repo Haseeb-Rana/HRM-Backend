@@ -27,11 +27,14 @@
   },
   "devDependencies": {
     "@sailshq/eslint": "^4.19.3",
-    "nodemon": "^1.17.3"
+    "apidoc": "^0.17.6",
+    "nodemon": "^1.17.3",
+    "rimraf": "^2.6.2"
   },
   "scripts": {
-    "start": "NODE_ENV=deploying node app.js",
-    "dev": "nodemon app.js",
+    "docs": "rimraf public/docs && apidoc -i config/ -o public/docs",
+    "start": "NODE_ENV=deploying npm run docs & node app.js",
+    "dev": "npm run docs & nodemon app.js",
     "test": "npm run lint && npm run custom-tests && echo 'Done.'",
     "lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
     "custom-tests": "echo \"(No other custom tests yet.)\" && echo"

@@ -48,8 +48,6 @@ module.exports.routes = {
   'PUT /v1/employees': 'v1/company/EmployeeController.update',
   //======================================================End==========================================================
 
-
-
   //======================================================Start========================================================
   //Job Controller
   'POST v1/jobs': 'v1/company/JobController.create',
