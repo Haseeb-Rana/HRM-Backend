@@ -4,7 +4,7 @@
  * @description :: Server-side actions for handling incoming requests.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
-var randomString = require('randomString');
+var randtoken = require('rand-token');
 var bcrypt = require('bcryptjs');
 module.exports = {
 
@@ -21,7 +21,7 @@ module.exports = {
         res.badRequest(err);
       if(! _.isEmpty(user))
       {
-          params.reset_password_token = randomString.generate({length: 20});
+          params.reset_password_token = randtoken.generate(20);
         Applicant.update({id: user.id}).set(params).exec(function(err,user)
         {
           if(err)
