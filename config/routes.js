@@ -10,7 +10,18 @@ module.exports.routes = {
 
   //======================================================Start========================================================
   //Applicant Controller
-   'POST /v1/applicants/signup': 'v1/applicants/RegisterController.signup',
+  /**
+   * @api {post} /v1/applicants/login Applicant login
+   * @apiName login
+   * @apiGroup Applicant
+   *
+   * @apiParam {String} email Email of the applicant.
+   * @apiParam {String} password Password of the applicant.
+   *
+   * @apiSuccess {String} auth-token JWT of the User.
+   */
+
+  'POST /v1/applicants/signup': 'v1/applicants/RegisterController.signup',
    'POST /v1/applicants/login': 'v1/applicants/AuthController.login',
    'PUT /v1/applicants/profile': 'v1/applicants/UpdateController.update',
    'GET /v1/applicants/profile': 'v1/applicants/ShowController.show',
