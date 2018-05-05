@@ -2,7 +2,8 @@ module.exports.routes = {
   'GET /': {
     skipAssets: true,
     fn: function(req, res) {
-      return res.send('Welcome to the HRM world.');
+      res.redirect('/docs');
+      // return res.send('Welcome to the HRM world.');
     }
   },
   //======================================================Start========================================================
