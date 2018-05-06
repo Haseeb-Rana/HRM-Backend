@@ -68,7 +68,7 @@ module.exports.routes = {
 
   //Job Controller
   'POST /v1/company/jobs':                 'v1/company/JobController.create',
-  'PUT /v1/company/jobs/:id':                  'v1/company/JobController.update',
+  'PUT /v1/company/jobs/:id':              'v1/company/JobController.update',
   'GET /v1/company/jobs/:id':              'v1/company/JobController.show',
   'GET /v1/company/jobs':                  'v1/company/JobController.list',
   'DELETE /v1/company/jobs/:id':           'v1/company/JobController.delete',
@@ -79,6 +79,13 @@ module.exports.routes = {
   'DELETE /v1/company/job_types/:id':       'v1/company/JobtypeController.delete',
   'GET /v1/company/job_types/:id':          'v1/company/JobtypeController.show',
   'GET /v1/company/job_types/':             'v1/company/JobtypeController.list',
+
+  //Leave type Controller
+  'POST /v1/company/Leave_types':             'v1/company/Leave_typeController.create',
+  'PUT /v1/company/Leave_types/:id':          'v1/company/Leave_typeController.update',
+  'DELETE /v1/company/Leave_types/:id':       'v1/company/Leave_typeController.delete',
+  'GET /v1/company/Leave_types/:id':          'v1/company/Leave_typeController.show',
+  'GET /v1/company/Leave_types/':             'v1/company/Leave_typeController.list',
 
   //Register Controller
   'POST /v1/company/signup':      'v1/company/RegisterController.signup',
