@@ -67,7 +67,11 @@ module.exports.routes = {
   'PUT /v1/employees':            'v1/company/EmployeeController.update',
 
   //Job Controller
-  'POST /v1/company/jobs':        'v1/company/JobController.create',
+  'POST /v1/company/jobs':                 'v1/company/JobController.create',
+  'PUT /v1/company/jobs/:id':                  'v1/company/JobController.update',
+  'GET /v1/company/jobs/:id':              'v1/company/JobController.show',
+  'GET /v1/company/jobs':                  'v1/company/JobController.list',
+  'DELETE /v1/company/jobs/:id':           'v1/company/JobController.delete',
 
   //Jobtype Controller
   'POST /v1/company/job_types':             'v1/company/JobtypeController.create',

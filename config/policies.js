@@ -61,15 +61,17 @@ module.exports.policies = {
     'list': 'isAuth',
     'create': 'isAuth',
     'update': 'isAuth',
-    'delete': 'isAuth'
-
+    'delete': 'isAuth',
+    'show': 'isAuth'
   },
 
   'v1/company/JobtypeController':{
     'list': 'isAuth',
     'create': 'isAuth',
     'update': 'isAuth',
-    'delete': 'isAuth'
+    'delete': 'isAuth',
+    'show': 'isAuth'
+
 
   },
 
@@ -81,6 +83,10 @@ module.exports.policies = {
     '*': 'isAuth'
   },
   'v1/company/JobController':{
+    'show': 'isAuth',
+    'list': 'isAuth',
     'create': 'isAuth',
+    'update': 'isAuth',
+    'delete': 'isAuth'
   },
 };
