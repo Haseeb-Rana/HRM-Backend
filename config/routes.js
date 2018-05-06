@@ -87,6 +87,13 @@ module.exports.routes = {
   'GET /v1/company/Leave_types/:id':          'v1/company/Leave_typeController.show',
   'GET /v1/company/Leave_types/':             'v1/company/Leave_typeController.list',
 
+//Leave Controller
+  'POST /v1/company/leaves':             'v1/company/LeaveController.create',
+  'PUT /v1/company/leaves/:id':          'v1/company/LeaveController.update',
+  'DELETE /v1/company/leaves/:id':       'v1/company/LeaveController.delete',
+  'GET /v1/company/leaves/:id':          'v1/company/LeaveController.show',
+  'GET /v1/company/leaves/':             'v1/company/LeaveController.list',
+
   //Register Controller
   'POST /v1/company/signup':      'v1/company/RegisterController.signup',
 };

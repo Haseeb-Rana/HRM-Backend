@@ -78,6 +78,13 @@ module.exports.policies = {
     'delete': 'isAuth',
     'show': 'isAuth'
   },
+  'v1/company/LeaveController':{
+    'list': 'isAuth',
+    'create': 'isAuth',
+    'update': 'isAuth',
+    'delete': 'isAuth',
+    'show': 'isAuth'
+  },
 
   'v1/company/CompanyController':{
     'update': 'isAuth',
