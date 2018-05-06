@@ -1,33 +1,46 @@
+
 module.exports.routes = {
+
+
   'GET /': {
     skipAssets: true,
     fn: function(req, res) {
       return res.send('Welcome to the HRM world.');
     }
-  },
-  //======================================================Start========================================================
-  //======================================================End==========================================================
 
+  },
   //======================================================Start========================================================
   //Applicant Controller
    'POST /v1/applicants/signup': 'v1/applicants/RegisterController.signup',
    'POST /v1/applicants/login': 'v1/applicants/AuthController.login',
-   'PUT /v1/applicants/profile': 'v1/applicants/UpdateController.update',
-   'GET /v1/applicants/profile': 'v1/applicants/ShowController.show',
-  'POST /v1/applicants/password/create': 'v1/applicants/PasswordController.create',
-  'PUT /v1/applicants/password/:token': 'v1/applicants/PasswordController.update',
+   'PUT /v1/applicants/profile': 'v1/applicants/ApplicantController.update',
+   'POST /v1/applicants/password/create': 'v1/applicants/PasswordController.create',
+   'PUT /v1/applicants/password/:token': 'v1/applicants/PasswordController.update',
 
   //Education Controller
   'POST /v1/applicants/education': 'v1/applicants/EducationController.create',
+  'GET /v1/applicants/education': 'v1/applicants/EducationController.list',
+  'PUT /v1/applicants/education/:id': 'v1/applicants/EducationController.update',
+  'DELETE /v1/applicants/education/:id': 'v1/applicants/EducationController.delete',
+
   //Experience Controller
   'POST /v1/applicants/experience': 'v1/applicants/ExperienceController.create',
-  //======================================================End==========================================================
-  //======================================================Start========================================================
+  'GET /v1/applicants/experience': 'v1/applicants/ExperienceController.list',
+  'PUT /v1/applicants/experience/:id': 'v1/applicants/ExperienceController.update',
+  'DELETE /v1/applicants/experience/:id': 'v1/applicants/ExperienceController.delete',
+
+  //Skill Controller
+  'POST /v1/applicants/skills': 'v1/applicants/SkillController.create',
+  'GET /v1/applicants/skills': 'v1/applicants/SkillController.list',
+  'PUT /v1/applicants/skills/:id': 'v1/applicants/SkillController.update',
+  'DELETE /v1/applicants/skills/:id': 'v1/applicants/SkillController.delete',
+
   //Auth Controller
   'POST /v1/company/login': 'v1/company/AuthController.login',
-  //======================================================End==========================================================
 
-  //======================================================Start========================================================
+  //Job_applicants
+  'POST /v1/applicants/apply/:id': 'v1/applicants/Job_applicantsController.create',
+
   //Company Controller
 
   'PUT /v1/company/profile': 'v1/company/CompanyController.update',
@@ -35,26 +48,22 @@ module.exports.routes = {
   'PUT /v1/company/invitations/:token': 'v1/company/InvitationController.update',
   'POST /v1/company/password/create': 'v1/company/PasswordController.create',
   'PUT /v1/company/password/:token': 'v1/company/PasswordController.update',
-  //======================================================End==========================================================
 
-  //======================================================Start========================================================
+  //DepartmentController
+  'POST /v1/company/departments': 'v1/company/DepartmentController.create',
+  'GET /v1/company/departments': 'v1/company/DepartmentController.list',
+  'GET /v1/company/departments/:id': 'v1/company/DepartmentController.show',
+  'PUT /v1/company/departments': 'v1/company/DepartmentController.update',
+  'Delete /v1/company/departments/:id': 'v1/company/DepartmentController.delete',
 
-  //======================================================End==========================================================
-
-  //======================================================Start========================================================
   //EmployeeController
   'POST /v1/employees': 'v1/company/EmployeeController.create',
   'GET /v1/company/employees': 'v1/company/EmployeeController.list',
   'PUT /v1/employees': 'v1/company/EmployeeController.update',
-  //======================================================End==========================================================
 
-  //======================================================Start========================================================
   //Job Controller
-  'POST v1/jobs': 'v1/company/JobController.create',
-  //======================================================End==========================================================
+  'POST /v1/company/jobs': 'v1/company/JobController.create',
 
-  //======================================================Start========================================================
   //Register Controller
   'POST /v1/company/signup': 'v1/company/RegisterController.signup',
-  //======================================================End==========================================================
 };
