@@ -56,6 +56,12 @@ module.exports.routes = {
   'PUT /v1/company/departments': 'v1/company/DepartmentController.update',
   'Delete /v1/company/departments/:id': 'v1/company/DepartmentController.delete',
 
+  //DesignationController
+  'POST /v1/company/departments/designations': 'v1/company/DesignationController.create',
+  'PUT /v1/company/departments/designations/:id': 'v1/company/DesignationController.update',
+  'GET /v1/company/departments/designations/:id': 'v1/company/DesignationController.show',
+  'DELETE /v1/company/departments/designations/:id': 'v1/company/DesignationController.delete',
+
   //EmployeeController
   'POST /v1/employees': 'v1/company/EmployeeController.create',
   'GET /v1/company/employees': 'v1/company/EmployeeController.list',
