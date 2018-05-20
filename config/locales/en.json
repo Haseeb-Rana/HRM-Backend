@@ -4,5 +4,5 @@
 	"applicant": {
 		"successLogin": "Applicant successfully login"
 	},
-	"successLogin": "successLogin"
+	"successLogin": "You have successfully logged in."
 }

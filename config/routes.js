@@ -70,9 +70,11 @@ module.exports.routes = {
   'DELETE /v1/company/departments/designations/:id': 'v1/company/DesignationController.delete',
 
   //EmployeeController
-  'POST /v1/employees':           'v1/company/EmployeeController.create',
-  'GET /v1/company/employees':    'v1/company/EmployeeController.list',
-  'PUT /v1/employees':            'v1/company/EmployeeController.update',
+  'POST /v1/company/employees':           'v1/company/EmployeeController.create',
+  'GET /v1/company/employees':            'v1/company/EmployeeController.list',
+  'PUT /v1/company/employees':            'v1/company/EmployeeController.update',
+  'GET /v1/company/employees/:id':        'v1/company/EmployeeController.show',
+  'GET /v1/company/me':                   'v1/company/EmployeeController.me',
 
   //Job Interview Controller
   "POST /v1/company/job_applications/:job_application_id/job_interviews":       'v1/company/Job_interviewController.create',

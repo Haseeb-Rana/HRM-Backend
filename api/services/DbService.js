@@ -8,9 +8,10 @@ module.exports.create = function (req, res, params) {
 };
 
 module.exports.find = function (req, res, params, cb) {
-  console.log(JSON.stringify(params.body, null, 2));
+  console.log("Params Condition: " + JSON.stringify(params.condition, null, 2));
   var populate = '';
   params.model.findOne(params.condition).populateAll().then(function (data) {
+    console.log("Data is: " + JSON.stringify(data, null, 2));
     if(_.isFunction(cb))
       cb(data);
     else
