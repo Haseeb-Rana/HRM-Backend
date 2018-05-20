@@ -57,6 +57,14 @@ module.exports = {
       columnName:'created_by_id',
       model: 'user'
     },
+    gender_preferences: {
+      type: 'string',
+      enum: ['male','female']
+    },
+    applicants_count: {
+      type: 'number',
+      defaultsTo: 0
+    }
   },
 
 };
