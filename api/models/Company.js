@@ -20,9 +20,12 @@ module.exports = {
     is_active:{
       type: 'boolean',
       defaultsTo: false
+    },
+    establishment_date: {
+      type: 'ref',
+      columnType: 'date'
     }
   },
-
 
   afterCreate: function(company,done) {
     User.update({id: company.owner},{company: company.id}).fetch().exec(function(err,user) {
