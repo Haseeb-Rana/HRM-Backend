@@ -42,20 +42,16 @@ module.exports = {
     confirmation_token:{
       type: 'string'
     },
-    experience:{
-      model: 'experience',
-      columnName: 'experience_id'
-    },
-    education:{
-      model: 'Education',
-      columnName: 'education_id'
-    },
     invitation_token:{
       type: 'string'
     },
     invitation_accepted_at:{
       type: 'number',
     },
+    is_discoverable: {
+      type: 'boolean',
+      defaultsTo: true
+    }
   },
   beforeCreate: function (values, cb) {
     bcrypt.hash(values.password, 10, function (err, hash) {

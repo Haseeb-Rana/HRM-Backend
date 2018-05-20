@@ -37,8 +37,8 @@ module.exports.routes = {
   'PUT /v1/applicants/experience/:id':      'v1/applicants/ExperienceController.update',
   'DELETE /v1/applicants/experience/:id':   'v1/applicants/ExperienceController.delete',
 
-  //Job_applicants
-  'POST /v1/applicants/apply/:id':          'v1/applicants/Job_applicantsController.create',
+  //Job_applications Controller
+  'POST /v1/application/apply/:id':          'v1/applicants/Job_applicationController.create',
 
   //Skill Controller
   'POST /v1/applicants/skills':             'v1/applicants/SkillController.create',
@@ -60,7 +60,7 @@ module.exports.routes = {
   'POST /v1/company/departments':         'v1/company/DepartmentController.create',
   'GET /v1/company/departments':          'v1/company/DepartmentController.list',
   'GET /v1/company/departments/:id':      'v1/company/DepartmentController.show',
-  'PUT /v1/company/departments':          'v1/company/DepartmentController.update',
+  'PUT /v1/company/departments/:id':      'v1/company/DepartmentController.update',
   'Delete /v1/company/departments/:id':   'v1/company/DepartmentController.delete',
 
   //DesignationController
@@ -73,6 +73,13 @@ module.exports.routes = {
   'POST /v1/employees':           'v1/company/EmployeeController.create',
   'GET /v1/company/employees':    'v1/company/EmployeeController.list',
   'PUT /v1/employees':            'v1/company/EmployeeController.update',
+
+  //Job Interview Controller
+  "POST /v1/company/job_applications/:job_application_id/job_interviews":       'v1/company/Job_interviewController.create',
+  "PUT /v1/company/job_applications/:job_application_id/job_interviews/:id":    'v1/company/Job_interviewController.update',
+  "GET /v1/company/job_applications/:job_application_id/job_interviews/":       'v1/company/Job_interviewController.list',
+  "DELETE /v1/company/job_applications/:job_application_id/job_interviews/:id": 'v1/company/Job_interviewController.delete',
+  "GET /v1/company/job_applications/:job_application_id/job_interviews/:id":    'v1/company/Job_interviewController.show',
 
   //Job Controller
   'POST /v1/company/jobs':                 'v1/company/JobController.create',

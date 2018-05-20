@@ -42,7 +42,7 @@ module.exports.policies = {
     'update': 'applicants/isAuth',
     'delete': 'applicants/isAuth',
   },
-  'v1/applicants/Job_applicantsController': {
+  'v1/applicants/Job_applicationController': {
     'create': 'applicants/isAuth',
     'list': 'applicants/isAuth',
     'update': 'applicants/isAuth',
@@ -71,6 +71,13 @@ module.exports.policies = {
     'delete': 'isAuth',
     'show': 'isAuth'
   },
+  'v1/company/Job_interviewController':{
+    'show': 'isAuth',
+    'list': 'isAuth',
+    'create': 'isAuth',
+    'update': 'isAuth',
+    'delete': 'isAuth'
+  },
   'v1/company/Leave_typeController':{
     'list': 'isAuth',
     'create': 'isAuth',
@@ -85,11 +92,9 @@ module.exports.policies = {
     'delete': 'isAuth',
     'show': 'isAuth'
   },
-
   'v1/company/CompanyController':{
     'update': 'isAuth',
   },
-
   'v1/company/EmployeeController':{
     '*': 'isAuth'
   },
