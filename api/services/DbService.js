@@ -24,7 +24,7 @@ module.exports.find = function (req, res, params, cb) {
 module.exports.list = function (req, res, params, cb) {
   console.log(JSON.stringify(params.body, null, 2));
   var populate = '';
-  params.model.find(params.condition).then(function (data) {
+  params.model.find(params.condition).sort('created_at DESC').then(function (data) {
     if(_.isFunction(cb))
       cb(data);
     else
