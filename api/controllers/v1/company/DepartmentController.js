@@ -42,7 +42,8 @@ module.exports = {
     },
     delete: function(req, res) {
         params.condition = {
-            id: req.params.id
+            id: req.params.id,
+            company: req.currentUser.company
         };
         DbService.delete(req, res, params)
     }
