@@ -32,5 +32,32 @@ module.exports.list = function (req, res, params, cb) {
   }).catch(function (err) {
     res.badRequest(err);
   });
+
+  module.exports.update = function(req, res, params, cb){
+    params.model.update(params.condition).set(params.body).fetch().then(function (data) {
+      if(_.isFunction(cb))
+        cb(data);
+      if(data)
+        res.ok(data);
+      else
+        res.notFound();
+    }).catch(function (err) {
+      res.badRequest(err);
+    });
+  };
+  module.exports.delete = function (req, res, params) {
+    this.list(req, res, params, function (result) {
+      console.log(result);
+      if (!_.isEmpty(result))
+        params.model.destroy(params.condition).fetch().exec(function (err, data) {
+          if (data) {
+            res.ok(data);
+          }
+          else res.badRequest(err);
+        });
+      else
+        res.notFound();
+    })
+  }
 };
 
