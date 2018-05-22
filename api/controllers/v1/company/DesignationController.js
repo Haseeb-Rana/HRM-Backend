@@ -41,6 +41,7 @@ create: function (req, res) {
 
     params.condition = {
       id: req.params.id
+      //id: 1
     };
     DbService.find(req, res, params);
   },

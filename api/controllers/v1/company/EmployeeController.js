@@ -14,6 +14,7 @@ module.exports = {
             gender: req.body.gender,
             email: req.body.email,
             password: req.body.password,
+            salary: req.body.salary,
             createdBy: req.currentUser.id,
             company: req.currentUser.company
         }
@@ -79,5 +80,12 @@ module.exports = {
         // DbService.find(req, res, params);
         console.log("Request me.");
         res.ok(req.currentUser);
-    }
+    },
+  delete: function (req, res) {
+      params.condition = {
+        id: req.params.id
+      };
+      DbService.delete(req, res, params)
+
+  }
 };

@@ -17,10 +17,10 @@ module.exports = {
     },
 
     list: function(req, res) {
-        params.condition = {
-            company: req.currentUser.company
-        };
-        DbService.list(req, res, params);
+      params.condition = {
+        company: req.currentUser.company
+      };
+       DbService.list(req, res, params);
     },
 
     show: function(req, res) {

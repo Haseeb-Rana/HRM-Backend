@@ -67,6 +67,9 @@ module.exports = {
     },
     invitation_accepted_at:{
       type: 'number',
+    },
+    salary: {
+      type: 'string'
     }
 
   },
