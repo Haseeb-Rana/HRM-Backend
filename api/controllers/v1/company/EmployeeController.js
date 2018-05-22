@@ -81,11 +81,12 @@ module.exports = {
         console.log("Request me.");
         res.ok(req.currentUser);
     },
-  delete: function (req, res) {
-      params.condition = {
-        id: req.params.id
-      };
-      DbService.delete(req, res, params)
+    delete: function(req, res) {
+        params.condition = {
+            id: req.params.id,
+            company: req.currentUser.company
+        };
+        DbService.delete(req, res, params)
 
-  }
+    }
 };
