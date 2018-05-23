@@ -2,5 +2,5 @@ module.exports.cors = {
 
     allRoutes: true,
     origin: '*',
-    allowOrigins: ['http://hrduty.com', 'https://hrduty.com', 'http://localhost:1337', 'http://localhost:4200']
+    allowOrigins: ['https://www.hrduty.com', 'http://www.hrduty.com', 'https://hrduty.com', 'http://localhost:1337', 'http://localhost:4200']
 }
