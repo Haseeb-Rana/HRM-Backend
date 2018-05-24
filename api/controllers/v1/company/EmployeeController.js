@@ -38,7 +38,7 @@ module.exports = {
             const mailOptions = {
                 from: process.env.SMTP_EMAIL, // sender address
                 to: employee.email, // list of receivers
-                subject: 'NextHrm Email', // Subject line
+                subject: 'HR Duty Email', // Subject line
                 html: '<p>Your Invitation Token is </p>' + employee.invitation_token // plain text body
             };
             transporter.sendMail(mailOptions, function(err, info) {
